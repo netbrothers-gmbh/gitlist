@@ -11,6 +11,11 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form style="padding-top: 10px" action="{{ app.request.basepath }}/search" method="GET">
+                        <input type="search" name="query" class="form-control input-sm" placeholder="Search repositories...">
+                    </form>
+                </li>
                 <li><a href="http://gitlist.org/">About</a></li>
                 <li><a href="{{ path('homepage') }}refresh">Refresh</a></li>
                 <li><a href="https://github.com/klaussilveira/gitlist/issues/new">Report bug</a></li>

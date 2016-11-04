@@ -9,6 +9,13 @@
             <a class="brand" href="{{ path('homepage') }}">{{ app.title }}</a>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
+                    <li>
+                        <form style="padding-top: 6px" action="{{ app.request.basepath }}/search" method="GET">
+                            <div class="search">
+                                <input class="search" name="query" placeholder="search repositories..." autofocus="">
+                            </div>
+                        </form>
+                    </li>
                     <li><a href="http://gitlist.org/">About</a></li>
                     <li><a href="{{ path('homepage') }}refresh">Refresh</a></li>
                     <li><a href="https://github.com/klaussilveira/gitlist/issues/new">Report bug</a></li>
