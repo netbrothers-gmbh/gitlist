@@ -18,6 +18,11 @@ class SearchController implements ControllerProviderInterface
         $route = $app['controllers_factory'];
         $route->get('search', function(Request $request) use ($app) {
             $term = $request->query->get('query');
+            if (preg_match('/^\\s*$/', $term)) {
+                return $app['twig']->render('index.twig', array(
+                    'repositories'   => $app['git']->getRepositories($app['git.repos']),
+                ));
+            }
             $repositories = $app['git']->getRepositories($app['git.repos']);
             $candidates = [];
             foreach ($repositories as $oneRepo) {
